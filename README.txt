@@ -11,11 +11,11 @@ matrix
 - the project is implemented in a basic file system:
 /matrix_arr:
 |
-|----/matrix_arr/src: *.c, .exe/.elf, Makefile (Important for Build!)
++----/matrix_arr/src: *.c, .exe/.elf, Makefile (Important for Build!)
 |               |
-|               |----/matrix_arr/src/obj: *.o
+|               +----> /matrix_arr/src/obj: *.o
 |
-|----/matrix_arr/include: *.h
++----> /matrix_arr/include: *.h
 
 Features:
 1. All random numbers are unique without duplicates
