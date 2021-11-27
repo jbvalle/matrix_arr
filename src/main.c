@@ -3,6 +3,7 @@
 #include <string.h>
 #include "str2args.h"
 #include "matavg.h"
+#include "print2outputfile.h"
 
 void add_args_to_matrix(char **args,float *matrix, int rows, int columns){
     //Parse input string arguments to matrix_arr
@@ -57,17 +58,33 @@ int main(void){
     //Creates averged matrix
     matavg(matrix, matrix_avrg, rows, columns);
 
-    printf("Input: \n");
+
+    printf("\nInput: \n");
+    printf("Dimensions %d x %d\n\n", rows, columns);
     for (int i = 0; i < rows; i++) {
+
+      for(int k = 0; k < columns; k++)printf("\t+------+");
+      printf("\n");
       for(int j = 0; j < columns; j++){
-        printf("%.2f ", *(matrix + i * columns + j));
-      }printf("\n");
+        printf("\t|%6.2f| ", *(matrix + i * columns + j));
+      }
+      printf("\n");
+      for(int k = 0; k < columns; k++)printf("\t+------+");
+      printf("\n");
     }
 
-    printf("Output: \n");
+    printf("\nOutput: \n");
+    printf("Dimensions %d x %d\n\n", rows-2, columns-2);
     for (int i = 0; i < rows-2; i++) {
+      for(int k = 0; k < columns-2; k++)printf("\t+------+");
+      printf("\n");
       for(int j = 0; j < columns-2; j++){
-        printf("%.2f ", *(matrix_avrg + i * (columns - 2) + j));
-      }printf("\n");
+        printf("\t|%6.2f| ", *(matrix_avrg + i * (columns - 2) + j));
+      }
+      printf("\n");
+      for(int k = 0; k < columns-2; k++)printf("\t+------+");
+      printf("\n");
     }
+
+    print2outputfile(matrix, matrix_avrg, rows, columns);
 }
