@@ -30,7 +30,7 @@ CFLAGS = -g -Wall -Wextra -pedantic -I$(IDIR)
 LFLAGS= -lm
 
 #define the "all" target
-all: clean SHOW_README $(OBJF) $(TARGET)
+all: clean SHOW_README $(OBJF) $(TARGET) RUN_WITH_ARGS
 
 #target <- objectfiles
 $(TARGET): $(OBJF)
@@ -46,3 +46,6 @@ SHOW_README:
 clean:
 	@echo Cleaning Up
 	@rm -rvf $(ODIR)/*.o *.exe ${BINS}
+
+RUN_WITH_ARGS:
+	@./main < input.txt
