@@ -5,6 +5,35 @@
 #include "matavg.h"
 #include "print2outputfile.h"
 
+void print_submatrix(float *matrix, int rows, int columns){
+
+    printf("\n\n+-------------------Submatrices------------------+\n\n");
+    //averageing matrix kernel
+    int kernel[9][2] = {{-1,-1},{-1,0},{-1,1},{0,-1},{0,0},{0,1},{1,-1},{1,0},{1,1}};
+
+    for (int i = 0; i < rows - 2 ; i++) {
+
+        for(int j = 0; j < columns - 2; j++){
+
+          float sum = 0;
+          for(int k = 0; k < 9; k++){
+
+            if(k%3 == 0){
+              printf("\n");
+              for(int x = 0; x < 3; x++)printf("\t+------+");
+              printf("\n");
+            }
+            sum += *(matrix + (i + kernel[k][0] + 1) * (columns) + (j + kernel[k][1] + 1));
+            printf("\t|%6.2f| ", *(matrix + (i + kernel[k][0] + 1) * (columns) + (j + kernel[k][1] + 1)));
+
+          }
+          printf("\n");
+          for(int x = 0; x < 3; x++)printf("\t+------+");
+          printf("\n\n");
+          printf("\n\t%d.Submatrix: Sum: %.2f, Averaged: %.2f\n\n",i * (columns - 2) + j + 1,sum,sum/9.0);
+        }
+    }
+}
 void add_args_to_matrix(char **args,float *matrix, int rows, int columns){
     //Parse input string arguments to matrix_arr
     //Convert to floating Type
@@ -87,4 +116,6 @@ int main(void){
     }
 
     print2outputfile(matrix, matrix_avrg, rows, columns);
+    
+    print_submatrix(matrix, rows, columns);
 }

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "print_submatrix2outputfile.h"
 
 void print2outputfile(float *matrix, float *matrix_avrg, int rows, int columns){
 
@@ -41,5 +42,8 @@ void print2outputfile(float *matrix, float *matrix_avrg, int rows, int columns){
     }
 
     printf("\nOutput Matrix succesfully saved ./output.txt\n");
+
+    print_submatrix2outputfile(out_file, matrix, rows, columns);
+
     fclose(out_file);
 }
