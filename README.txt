@@ -15,7 +15,7 @@ matrices
 |               |
 |               +----> /matrix_arr/src/obj: *.o
 |
-|-----> README.txt
++-----> README.txt
 |
 |
 +-----> /matrix_arr/include: *.h
