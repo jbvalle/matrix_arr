@@ -30,13 +30,18 @@ Features:
 | ~ this building process also runs program automatically |
 | :$ make                                                 |
 |                                                         |
-| 2. Execute main program manually:                       |
-| :$ ./main < input.txt                                   |
+| 2. Execute main with make                               |
+| ~ edit matrix_arr/src/input.txt file                    |
+| ~ use format of 3.1 & 3.2                               |
+| :$ make                                                 |
 |                                                         |
-| 3. Type matrix dimensions Format: (ROWSxCOLUMNS         |
+| 3. Execute main program manually:                       |
+| :$ ./main                                               |
+|                                                         |
+| 3.1. Type matrix dimensions Format: (ROWSxCOLUMNS)      |
 | i.e. :$ 3x4                                             |
 |                                                         |
-| 4. Type floating point values of matrix                 |
+| 3.2. Type floating point values of matrix               |
 | i.e. :$                                                 |
 |   4.5 1.0 2.0 6.0                                       |
 |   1.0 1.5 3.0 4.5                                       |
